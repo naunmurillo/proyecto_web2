@@ -24,9 +24,9 @@ export class SeguimientoController {
     return this.seguimientoService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.seguimientoService.findOne(id);
+  @Get(':cedula')
+  findOne(@Param('cedula') cedula: string) {
+    return this.seguimientoService.findOne(cedula);
   }
 
   @Patch(':id')

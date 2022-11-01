@@ -24,18 +24,18 @@ export class CorredorController {
     return this.corredorService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.corredorService.findOne(id);
+  @Get(':cedula')
+  findOne(@Param('cedula') cedula: string) {
+    return this.corredorService.findOne(cedula);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCorredorDto: UpdateCorredorDto) {
-    return this.corredorService.update(id, updateCorredorDto);
+  @Patch(':cedula')
+  update(@Param('cedula') cedula: string, @Body() updateCorredorDto: UpdateCorredorDto) {
+    return this.corredorService.update(cedula, updateCorredorDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.corredorService.remove(id);
+  @Delete(':cedula')
+  remove(@Param('cedula') cedula: string) {
+    return this.corredorService.remove(cedula);
   }
 }

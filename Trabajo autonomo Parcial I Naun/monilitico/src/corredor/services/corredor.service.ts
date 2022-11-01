@@ -62,13 +62,13 @@ export class CorredorService {
   }
 
   //Para buscar por cedula a un corredor
-  async findOne(id: string) {
+  async findOne(cedula: string) {
     try {
       //*Busca por cedula al corredor
-      const corredorExist = await this.corredorModule.findOne({Cedula: id, status: true});
+      const corredorExist = await this.corredorModule.findOne({Cedula: cedula, status: true});
       if(!corredorExist){
         return ({
-            messageError: `la cedula que ingresaste, ${id} no existe.`
+            messageError: `la cedula que ingresaste, ${cedula} no existe.`
         })
       }
       return ({
@@ -82,14 +82,14 @@ export class CorredorService {
   }
 
 
-  async update(id: string, updateCorredorDto: UpdateCorredorDto) {
+  async update(cedula: string, updateCorredorDto: UpdateCorredorDto) {
     try {
       //* Busca al corredor por cedula y por que el status sea igual a true
-      const updatedCorredor = await this.corredorModule.findOne({Cedula: id, status: true});
+      const updatedCorredor = await this.corredorModule.findOne({Cedula: cedula, status: true});
       //*Si no se encuentra suenta un messageError
       if(!updatedCorredor){
         return ({
-          messageError: `La cedula que ingresaste, ${id} no existe`
+          messageError: `La cedula que ingresaste, ${cedula} no existe`
         })
       }else{
         //* Se actualiza el corredor
@@ -106,15 +106,15 @@ export class CorredorService {
     
   }
 
-  async remove(id: string) {
+  async remove(cedula: string) {
     try {
       //*Buscamos con el numero de cedula al corredor que queramos eliminar, y que este
       //*con el valor de status: true
-      const deletedCorredor = await this.corredorModule.findOne({Cedula: id, status: true});
+      const deletedCorredor = await this.corredorModule.findOne({Cedula: cedula, status: true});
       
       if(!deletedCorredor){
         return ({
-          messageError: `La cedula que ingresaste, ${id} no existe`
+          messageError: `La cedula que ingresaste, ${cedula} no existe`
         })
       }else{
         //*Si el corredor se encontro, lo que haremos el pasar el status: false

@@ -55,14 +55,14 @@ export class SeguimientoService {
     }
   }
   //*SeguimientoPorCedula
-  async findOne(id: string) {
+  async findOne(cedula: string) {
     try {
       //* Verificamos si existe corredor
-      const corredorExist = await this.corredorModule.findOne({Cedula: id, status: true});
+      const corredorExist = await this.corredorModule.findOne({Cedula: cedula, status: true});
       console.log(corredorExist)
       if (!corredorExist){
         return({
-            message: `corredor con la cedula: ${id} no existe.`
+            message: `corredor con la cedula: ${cedula} no existe.`
         })
     }else{
       //* Buscamos todos los seguimientos de ese corredor
@@ -71,7 +71,7 @@ export class SeguimientoService {
       .populate('idCorredor').populate('idCarrera');
       if(seguimientoExist.length == 0){
         return({
-          message: `seguimientos con la cedula: ${id} no existen.`
+          message: `seguimientos con la cedula: ${cedula} no existen.`
         })
       }else{
         console.log(seguimientoExist)

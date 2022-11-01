@@ -58,14 +58,14 @@ export class CarreraService {
     }
   }
 
-  async findOne(id: string) {
+  async findOne(nombre: string) {
     try {
       //*Busca por cedula al corredor
-      const carreraExist = await this.carreraModule.find({ Nombre: id, status: true });
+      const carreraExist = await this.carreraModule.find({ Nombre: nombre, status: true });
       //Si no existe suelta un error
       if(!carreraExist){
         return ({
-            messageError: `${id} no existe.`
+            messageError: `${nombre} no existe.`
         })
       }
       return ({

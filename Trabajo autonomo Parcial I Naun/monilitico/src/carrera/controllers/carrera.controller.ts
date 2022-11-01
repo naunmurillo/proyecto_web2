@@ -24,9 +24,9 @@ export class CarreraController {
     return this.carreraService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.carreraService.findOne(id);
+  @Get(':nombre')
+  findOne(@Param('nombre') nombre: string) {
+    return this.carreraService.findOne(nombre);
   }
 
   @Patch(':id')
