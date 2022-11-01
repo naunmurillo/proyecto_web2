@@ -9,7 +9,9 @@ async function bootstrap() {
   .setTitle('REST-API project documentation')
   .setDescription('Rutas CRUD de Corredor, Carrera y Seguimiento')
   .setVersion('1.0')
-  .addTag('corredor')
+  .addTag('Corredor')
+  .addTag('Carrera')
+  .addTag('Seguimiento')
   .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('documentation', app, document);

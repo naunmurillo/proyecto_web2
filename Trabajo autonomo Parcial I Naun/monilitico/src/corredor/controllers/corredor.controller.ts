@@ -4,7 +4,7 @@ import { CreateCorredorDto } from '../dto/create-corredor.dto';
 import { UpdateCorredorDto } from '../dto/update-corredor.dto';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('corredor')
+@ApiTags('Corredor')
 //Controller, los que controlan las rutas de envio http.
 //TODO: http://localhost:4000/corredor
 //* Controlador es la capa de infraestructura que se encarga de manejar

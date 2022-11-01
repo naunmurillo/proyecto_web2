@@ -33,7 +33,7 @@ export class CorredorService {
       
     } catch (error) {
       return ({
-        messageError: `${error}`
+        messageError: error
       })
     }
     
@@ -56,7 +56,7 @@ export class CorredorService {
     })
     } catch (error) {
       return ({
-        messageError: `${error}`
+        messageError: error
       })
     }
   }
@@ -76,7 +76,7 @@ export class CorredorService {
       })
     } catch (error) {
       return ({
-        messageError: `${error}`
+        messageError: error
       })
     }
   }
@@ -85,22 +85,22 @@ export class CorredorService {
   async update(id: string, updateCorredorDto: UpdateCorredorDto) {
     try {
       //* Busca al corredor por cedula y por que el status sea igual a true
-      const updateCorredor = await this.corredorModule.findOne({Cedula: id, status: true});
+      const updatedCorredor = await this.corredorModule.findOne({Cedula: id, status: true});
       //*Si no se encuentra suenta un messageError
-      if(!updateCorredor){
+      if(!updatedCorredor){
         return ({
           messageError: `La cedula que ingresaste, ${id} no existe`
         })
       }else{
         //* Se actualiza el corredor
-        await updateCorredor.updateOne(updateCorredorDto);
+        await updatedCorredor.updateOne(updateCorredorDto);
         return ({
-          updateCorredor: updateCorredorDto
+          updatedCorredor: updateCorredorDto
         })
       }
     } catch (error) {
       return ({
-        messageError: `${error}`
+        messageError: error
       })
     }
     
@@ -127,7 +127,7 @@ export class CorredorService {
       
     } catch (error) {
       return ({
-        messageError: `${error}`
+        messageError: error
       })
     }
   }
