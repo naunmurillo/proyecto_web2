@@ -19,7 +19,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(process.env.PORT);
-  console.log(process.env.PORT)
+  console.log(`Servidor Corriendo en http://localhost:${process.env.PORT}`);
   console.log(process.env.CorredorDB)
 }
 bootstrap();

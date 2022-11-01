@@ -9,7 +9,7 @@ import { SeguimientoModule } from './seguimiento/seguimiento.module';
 dotenv.config();
 
 @Module({
-  imports: [ 
+  imports: [
     MongooseModule.forRoot(process.env.CorredorDB),
     CorredorModule,
     CarreraModule,
